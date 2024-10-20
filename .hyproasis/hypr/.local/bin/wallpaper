@@ -124,14 +124,14 @@ toggle_slideshow() {
 	fi
 }
 
-# case "$1" in
-# "image") set_wallpaper "$2" ;;
+case "$1" in
+"image") set_wallpaper "$2" ;;
 
-# "play") play_slideshow ;;
-# "pause") pause_slideshow ;;
-# "toggle") toggle_slideshow ;;
+"play") play_slideshow ;;
+"pause") pause_slideshow ;;
+"toggle") toggle_slideshow ;;
 
-# "next") next_wallpaper ;;
-# "prev") previous_wallpaper ;;
-# *) exit 1 ;;
-# esac
+"next") next_wallpaper ;;
+"prev") previous_wallpaper ;;
+*) exit 1 ;;
+esac
