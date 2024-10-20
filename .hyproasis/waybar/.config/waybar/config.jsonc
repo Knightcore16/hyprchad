@@ -1,0 +1,88 @@
+{
+  "height": 28,
+  "mod": "dock",
+  "layer": "top",
+  "position": "top",
+  "exclusive": true,
+  "passthrough": false,
+  "reload_style_on_change": true,
+
+  "modules-left": [
+    "custom/start",
+    "hyprland/window",
+    "custom/end",
+
+    "group/media",
+    "custom/space",
+
+    "privacy",
+  ],
+
+  "modules-center": ["custom/space", "hyprland/workspaces", "custom/space"],
+
+  "modules-right": [
+    "custom/start",
+    "group/backlight",
+    "custom/padd",
+    "group/audio",
+    "custom/padd",
+    "group/network",
+    "custom/padd",
+    "group/bluetooth",
+    "custom/padd",
+    "group/status",
+    "custom/padd",
+    "clock",
+    "custom/end",
+
+    "custom/start",
+    "group/tools",
+    "custom/end",
+
+    "custom/start",
+    "tray",
+    "custom/end",
+
+    "custom/start",
+    "custom/notifications",
+    "custom/padd",
+    "custom/power",
+    "custom/end",
+  ],
+
+  "include": [
+    "~/.config/waybar/modules/window.jsonc",
+    "~/.config/waybar/modules/media.jsonc",
+
+    "~/.config/waybar/modules/workspaces.jsonc",
+
+    "~/.config/waybar/modules/privacy.jsonc",
+    "~/.config/waybar/modules/backlight.jsonc",
+    "~/.config/waybar/modules/audio.jsonc",
+    "~/.config/waybar/modules/network.jsonc",
+    "~/.config/waybar/modules/bluetooth.jsonc",
+    "~/.config/waybar/modules/clock.jsonc",
+    "~/.config/waybar/modules/notifications.jsonc",
+    "~/.config/waybar/modules/power.jsonc",
+
+    "~/.config/waybar/modules/separators.jsonc",
+    "~/.config/waybar/modules/tools.jsonc",
+    "~/.config/waybar/modules/status.jsonc",
+
+    "~/.config/waybar/modules/battery.jsonc",
+    "~/.config/waybar/modules/cpu.jsonc",
+    "~/.config/waybar/modules/disk.jsonc",
+    "~/.config/waybar/modules/memory.jsonc",
+
+    "~/.config/waybar/modules/assistant.jsonc",
+    "~/.config/waybar/modules/colorpicker.jsonc",
+    "~/.config/waybar/modules/screencapture.jsonc",
+    "~/.config/waybar/modules/shader.jsonc",
+    "~/.config/waybar/modules/mode.jsonc",
+    "~/.config/waybar/modules/language.jsonc",
+    "~/.config/waybar/modules/search.jsonc",
+    "~/.config/waybar/modules/wallpaper.jsonc",
+    "~/.config/waybar/modules/ambient_sound.jsonc",
+    "~/.config/waybar/modules/clipmenu.jsonc",
+  ],
+}
