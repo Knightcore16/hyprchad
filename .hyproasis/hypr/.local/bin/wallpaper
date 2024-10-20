@@ -12,27 +12,26 @@ WALLPAPERS_PATH="${WALLPAPER_DIR:-$HOME/.local/share/wallpapers}"
 WALLPAPER_STATE_DIR="${WALLPAPER_STATE:-$HOME/.local/state/wallpaper}"
 
 make_state() {
-	[ ! -d "$WALLPAPERS_PATH" ] && echo "[ INFO ] $WALLPAPERS_PATH does not exist" >"$WALLPAPER_STATE_DIR/log" && exit 1
 	[ ! -d "$WALLPAPER_STATE_DIR" ] && mkdir -p "$WALLPAPER_STATE_DIR"
+	[ ! -d "$WALLPAPERS_PATH" ] && echo "[ INFO ] $WALLPAPERS_PATH does not exist" && exit 1
 	[ ! -f "$WALLPAPER_STATE_DIR/cache_index" ] && echo "0" >"$WALLPAPER_STATE_DIR/cache_index"
 	[ ! -f "$WALLPAPER_STATE_DIR/cache" ] && touch "$WALLPAPER_STATE_DIR/cache" && cache_wallpapers
 	[ ! -f "$WALLPAPER_STATE_DIR/index" ] && echo "0" >"$WALLPAPER_STATE_DIR/index"
-	[ ! -f "$WALLPAPER_STATE_DIR/state" ] && touch "$WALLPAPER_STATE_DIR/cache" && load_wallpaper
+	[ ! -f "$WALLPAPER_STATE_DIR/state" ] && touch "$WALLPAPER_STATE_DIR/state" && load_wallpaper
 }
 
 cache_wallpapers() {
 	make_state
 	wallpapers=$(find "$WALLPAPERS_PATH/" -type f -iregex '.*\.\(jpg\|jpeg\|png\|gif\)$')
 	echo "$wallpapers" | shuf >"$WALLPAPER_STATE_DIR/cache"
-	echo "0" >"$WALLPAPER_STATE_DIR/cache_index"
-	echo "[ INFO ] Cached $(wc -l <"$WALLPAPER_STATE_DIR/cache") wallpapers" >>"$WALLPAPER_STATE_DIR/log"
+	echo "[ INFO ] Cached $(wc -l <"$WALLPAPER_STATE_DIR/cache") wallpapers"
 }
 
 load_wallpaper() {
 	make_state
+	state_size=$(wc -l <"$WALLPAPER_STATE_DIR/state")
 	cache_size=$(wc -l <"$WALLPAPER_STATE_DIR/cache")
 	cache_index=$(cat "$WALLPAPER_STATE_DIR/cache_index")
-	state_size=$(wc -l <"$WALLPAPER_STATE_DIR/state" 2>/dev/null || echo 0)
 
 	if [ "$cache_index" -ge "$cache_size" ]; then
 		cache_wallpapers
@@ -54,18 +53,18 @@ set_wallpaper() {
 	WALLPAPER="$1"
 	# ACTIVE_SHADER=$(hyprshade current)
 
-	echo "[ INFO ] Applying wal colors" >>"$WALLPAPER_STATE_DIR/log"
+	echo "[ INFO ] Applying wal colors"
 	wal --cols16 -n -q -b "$BACKGROUND_COLOR" --fg "$FOREGROUND_COLOR" --saturate $SATURATION -i "$WALLPAPER"
 
-	echo "[ INFO ] Applying wallpaper $WALLPAPER" >>"$WALLPAPER_STATE_DIR/log"
+	echo "[ INFO ] Applying wallpaper $WALLPAPER"
 	hyprctl hyprpaper unload all
 	hyprctl hyprpaper preload "$WALLPAPER"
 	hyprctl hyprpaper wallpaper "$MONITOR, $WALLPAPER"
 
-	echo "[ INFO ] Creating wallpaper link" >>"$WALLPAPER_STATE_DIR/log"
+	echo "[ INFO ] Creating wallpaper link"
 	ln -f "$WALLPAPER" "$WALLPAPERS_PATH/background"
 
-	# echo "[ INFO ] Applying shader $ACTIVE_SHADER" >>"$WALLPAPER_STATE_DIR/log"
+	# echo "[ INFO ] Applying shader $ACTIVE_SHADER"
 	# hyprshade toggle "$SHADERS_PATH/$ACTIVE_SHADER.glsl"
 }
 
@@ -103,7 +102,7 @@ previous_wallpaper() {
 
 play_slideshow() {
 	make_state
-	echo "[ INFO ] Playing Slideshow" >>"$WALLPAPER_STATE_DIR/log"
+	echo "[ INFO ] Playing Slideshow"
 	while true; do
 		next_wallpaper
 		sleep $INTERVAL
@@ -112,7 +111,7 @@ play_slideshow() {
 
 pause_slideshow() {
 	make_state
-	echo "[ INFO ] Slideshow paused" >>"$WALLPAPER_STATE_DIR/log"
+	echo "[ INFO ] Slideshow paused"
 	killall wallpaper 2>/dev/null
 }
 
