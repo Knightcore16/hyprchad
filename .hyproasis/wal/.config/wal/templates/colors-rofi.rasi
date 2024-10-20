@@ -1,9 +1,9 @@
 * {{
     foreground: @foreground;
-    foreground-alt: @color7;
+    foreground-alt: @color15;
 
     background: @background;
-    background-alt: @color15;
+    background-alt: @color8;
 
     urgent: @color3;
     active: @color1;

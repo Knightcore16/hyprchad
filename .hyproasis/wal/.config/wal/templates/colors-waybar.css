@@ -1,8 +1,8 @@
 @define-color foreground              {foreground};
-@define-color foreground-alt          {color7};
+@define-color foreground-alt          {color15};
 
 @define-color background              {background};
-@define-color background-alt          {color15};
+@define-color background-alt          {color8};
 
 @define-color cursor                  {cursor};
 
