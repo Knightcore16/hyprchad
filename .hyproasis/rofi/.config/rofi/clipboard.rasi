@@ -1,4 +1,4 @@
-@theme "./themes/base.rasi"
+@theme "./themes/theme.rasi"
 @theme "~/.cache/wal/colors-rofi.rasi"
 
 configuration {

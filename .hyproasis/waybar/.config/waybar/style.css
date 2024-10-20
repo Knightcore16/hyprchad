@@ -1,4 +1,4 @@
-@import "./themes/base.css";
+@import "./themes/theme.css";
 @import "../../.cache/wal/colors-waybar.css";
 
 * {
