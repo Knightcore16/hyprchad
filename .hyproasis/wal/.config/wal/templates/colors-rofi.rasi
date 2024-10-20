@@ -1,13 +1,13 @@
 * {{
-    foreground: @foreground;
-    foreground-alt: @color15;
+    foreground:     {foreground};
+    foreground-alt: {color15};
 
-    background: @background;
-    background-alt: @color8;
+    background:     {background};
+    background-alt: {color8};
 
-    urgent: @color3;
-    active: @color1;
-    selected: @color8;
+    urgent:     {color3};
+    active:     {color1};
+    selected:   {color8};
 
     color0:     {color0};
     color1:     {color1};
@@ -17,7 +17,7 @@
     color5:     {color5};
     color6:     {color6};
     color7:     {color7};
-    
+
     color8:     {color8};
     color9:     {color9};
     color10:    {color10};
