@@ -52,18 +52,18 @@ load_wallpaper() {
 
 set_wallpaper() {
 	WALLPAPER="$1"
-	ACTIVE_SHADER=$(hyprshade current)
+	# ACTIVE_SHADER=$(hyprshade current)
 
-	# echo "[ INFO ] Applying wal colors" >>"$WALLPAPER_STATE_DIR/log"
-	# wal --cols16 -n -e -s -b "$BACKGROUND_COLOR" --fg "$FOREGROUND_COLOR" --saturate $SATURATION -i "$WALLPAPER"
-
-	echo "[ INFO ] Creating wallpaper link" >>"$WALLPAPER_STATE_DIR/log"
-	ln -f "$WALLPAPER" "$WALLPAPERS_PATH/background"
+	echo "[ INFO ] Applying wal colors" >>"$WALLPAPER_STATE_DIR/log"
+	wal --cols16 -n -q -b "$BACKGROUND_COLOR" --fg "$FOREGROUND_COLOR" --saturate $SATURATION -i "$WALLPAPER"
 
 	echo "[ INFO ] Applying wallpaper $WALLPAPER" >>"$WALLPAPER_STATE_DIR/log"
 	hyprctl hyprpaper unload all
 	hyprctl hyprpaper preload "$WALLPAPER"
 	hyprctl hyprpaper wallpaper "$MONITOR, $WALLPAPER"
+
+	echo "[ INFO ] Creating wallpaper link" >>"$WALLPAPER_STATE_DIR/log"
+	ln -f "$WALLPAPER" "$WALLPAPERS_PATH/background"
 
 	# echo "[ INFO ] Applying shader $ACTIVE_SHADER" >>"$WALLPAPER_STATE_DIR/log"
 	# hyprshade toggle "$SHADERS_PATH/$ACTIVE_SHADER.glsl"
