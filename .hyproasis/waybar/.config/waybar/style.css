@@ -11,13 +11,13 @@
   font-weight: bold;
   border-radius: 0px;
   color: inherit;
-  border: 0 solid @color8;
+  border: 0 solid @background-alt;
   background-image: none;
   transition: all 0.3s ease-in-out;
   font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-erif;
 }
 
-window {
+window#waybar {
   color: @foreground;
   background-color: transparent;
 }
@@ -31,7 +31,7 @@ tooltip {
 trough {
   min-width: 100px;
   border-radius: 999px;
-  background-color: @color8;
+  background-color: @background-alt;
 }
 
 highlight {
@@ -85,7 +85,7 @@ highlight {
 #mpris {
   margin: 2px 0;
   border-radius: 999px;
-  color: @color0;
+  color: @background;
   background: @background;
   animation: gradient 5s linear infinite;
 }
@@ -129,13 +129,13 @@ highlight {
 #tray button:hover,
 #taskbar button:hover,
 #workspaces button:hover {
-  background: @color8;
+  background: @background-alt;
 }
 
 #taskbar button.active,
 #workspaces button.active {
   padding: 0 14px;
-  color: @color0;
+  color: @background;
   background: linear-gradient(90deg, #89b4fa 0%, #ffc8dd 50%, #89b4fa 100%);
   background-size: 400% 400%;
   animation: gradient 5s linear infinite;
