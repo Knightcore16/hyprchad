@@ -1,0 +1,55 @@
+format = """
+[](fg:bright-cyan)$username[](bg:bright-cyan fg:black)$hostname[](fg:bright-cyan) \
+[](fg:bright-blue)$directory[](fg:bright-blue) \
+[](fg:green)$cmd_duration[](fg:green) \
+$character \
+"""
+
+[username]
+disabled = false
+show_always = true
+format = "[$user ]($style)"
+style_user = "fg:black bg:bright-cyan"
+style_root = "fg:#f38ba8 bg:bright-cyan"
+
+[hostname]
+disabled = false
+ssh_only = false
+ssh_symbol = ""
+format = "[ $hostname]($style)"
+style = "fg:black bg:bright-cyan"
+trim_at = "."
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
+repo_root_format = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)[  ]($repo_root_style)"
+read_only_style = "fg:black bg:red"
+repo_root_style = "fg:black bg:bright-blue"
+style = "fg:black bg:bright-blue"
+truncation_symbol = "⋯"
+use_os_path_sep = true
+truncation_length = 2
+read_only = " ◈"
+
+[directory.substitutions]
+"~/Documents" = ""
+"~/Downloads" = ""
+"~/Pictures" = ""
+"~/.config" = ""
+"~/Videos" = ""
+"~/Music" = ""
+"~/Dev" = "󰅴 "
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+format = '[ $duration]($style)'
+style = "fg:black bg:green"
+show_milliseconds = true
+min_time = 0
+
+[character]
+success_symbol = "[🞈](fg:#a6e3a1 bold)"
+error_symbol = "[🞈](fr:#f38ba8 bold)"
+vicmd_symbol = "[🞈](fg:#f9e2af bold)"
