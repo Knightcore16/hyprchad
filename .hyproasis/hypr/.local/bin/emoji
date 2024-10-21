@@ -1,4 +1,0 @@
-#!/bin/bash
-
-config="$HOME/.config/rofi/emoji.rasi"
-rofi -config "$config" -modi emoji -show emoji -emoji-mode insert
