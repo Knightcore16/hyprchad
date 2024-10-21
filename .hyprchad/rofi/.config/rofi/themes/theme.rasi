@@ -1,0 +1,28 @@
+* {
+    background: @color0;
+    background-alt: @color8;
+    foreground: @color15;
+    foreground-alt: @color7;
+
+    urgent: @color3;
+    active: @color1;
+    selected: @color8;
+
+    color0:     #1e1e2e;
+    color1:     #a1353f;
+    color2:     #8b872e;
+    color3:     #965932;
+    color4:     #a29436;
+    color5:     #c09d41;
+    color6:     #c75759;
+    color7:     #91968b;
+    color8:     #606956;
+    color9:     #c75761;
+    color10:    #bbb53e;
+    color11:    #c2784a;
+    color12:    #c7ba59;
+    color13:    #d5be83;
+    color14:    #df9fa0;
+    color15:    #cdd6f4;
+}
+

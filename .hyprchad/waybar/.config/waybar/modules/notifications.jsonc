@@ -1,0 +1,11 @@
+{
+  "custom/notifications": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.local/bin/notifications status",
+    "on-click": "$HOME/.local/bin/notifications showall",
+    "on-click-right": "dunstctl set-paused toggle",
+    "on-click-middle": "dunstctl history-clear",
+    "interval": 1,
+  },
+}
