@@ -138,7 +138,7 @@ highlight {
   color: @background;
   background: linear-gradient(90deg, #89b4fa 0%, #ffc8dd 50%, #89b4fa 100%);
   background-size: 400% 400%;
-  animation: gradient 5s linear infinite;
+  animation: gradient 10s linear infinite;
 }
 
 #custom-end {
@@ -170,4 +170,8 @@ highlight {
     background-color: @foreground;
     color: #ff0000;
   }
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
 }
